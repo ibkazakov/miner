@@ -22,10 +22,14 @@ public class MinerBox {
 
     public static final int BOX_SIZE = 25;
     private static final Font LABEL_FONT = new Font(null, Font.BOLD,25);
-    private static final Icon MINE_ICON = new ImageIcon("assets/mine_icon.png");
-    private static final Icon MINE_BREAK_ICON = new ImageIcon("assets/mine_break_icon.png");
-    private static final Icon FLAG_ICON = new ImageIcon("assets/flag_icon.png");
-    private static final Icon WRONG_FLAG_ICON = new ImageIcon("assets/wrong_flag_icon.png");
+
+    private static final ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+
+    private static final Icon MINE_ICON = new ImageIcon(classLoader.getResource("assets/mine_icon.png"));
+    private static final Icon MINE_BREAK_ICON = new ImageIcon(classLoader.getResource("assets/mine_break_icon.png"));
+    private static final Icon FLAG_ICON = new ImageIcon(classLoader.getResource("assets/flag_icon.png"));
+    private static final Icon WRONG_FLAG_ICON = new ImageIcon(classLoader.getResource("assets/wrong_flag_icon.png"));
+
     private static final Color BOX_COLOR = new Color(230, 230, 230);
     private static final Color BREAK_MINE_COLOR = new Color(255,70,70);
     private static final Color BORDERS_COLOR = Color.LIGHT_GRAY;
@@ -133,13 +137,13 @@ public class MinerBox {
 
     public void open_not_zero() {
         if (!isOpen) {
-                simple_open();
                 if (isMine) {
                     contentLabel.setText("");
                     contentLabel.setIcon(MINE_BREAK_ICON);
                     contentLabel.setBackground(BREAK_MINE_COLOR);
                     minerField.fail();
                 }
+                simple_open();
                 minerField.opened++;
                 minerField.checkWin();
             }
@@ -179,6 +183,13 @@ public class MinerBox {
     }
 
     public void setFlagState(int flagState) {
+        if ((this.flagState != 1) && flagState == 1) {
+            minerField.decreaseDisplay();
+        }
+        if ((this.flagState == 1) && (flagState != 1)) {
+            minerField.increaseDisplay();
+        }
+
         this.flagState = flagState;
         switch (flagState) {
             case 0:

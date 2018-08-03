@@ -10,10 +10,12 @@ public class RefreshButton extends JButton {
     private MinerField minerField;
     private boolean fieldClickEnable = true;
 
-    private static final Icon win_icon = new ImageIcon("assets/win_icon.png");
-    private static final Icon fail_icon = new ImageIcon("assets/fail_icon.png");
-    private static final Icon click_icon = new ImageIcon("assets/click_icon.png");
-    private static final Icon normal_icon = new ImageIcon("assets/normal_icon.png");
+    private static final ClassLoader classLoader = ClassLoader.getSystemClassLoader();
+
+    private static final Icon win_icon = new ImageIcon(classLoader.getResource("assets/win_icon.png"));
+    private static final Icon fail_icon = new ImageIcon(classLoader.getResource("assets/fail_icon.png"));
+    private static final Icon click_icon = new ImageIcon(classLoader.getResource("assets/click_icon.png"));
+    private static final Icon normal_icon = new ImageIcon(classLoader.getResource("assets/normal_icon.png"));
 
     public RefreshButton(JPanel refreshPanel, MinerField minerField) {
         this.refreshPanel = refreshPanel;

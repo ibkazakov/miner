@@ -11,6 +11,9 @@ public class GameWindow extends JFrame {
     private JPanel fieldPanel;
     private RefreshButton refreshButton;
 
+    private DigitalDisplay minesDisplay;
+    private TimeDigitalDisplay timeDisplay;
+
     private static final int LEFT_MARGIN = 5;
     private static final int RIGHT_MARGIN = 5;
     private static final int TOP_MARGIN = 5;
@@ -20,11 +23,12 @@ public class GameWindow extends JFrame {
     private static final int MIN_WIDTH = 225;
     private static final int REFRESH_HEIGHT = 70;
 
+    private static final int DISPLAY_PADDING = 5;
+
     public GameWindow(int width, int height, int mines) {
         this.width = width;
         this.height = height;
         this.mines = mines;
-
 
         int refreshPanelWidth = Math.max(MIN_WIDTH, width * MinerBox.BOX_SIZE);
         int windowWidth = LEFT_MARGIN + refreshPanelWidth + RIGHT_MARGIN;
@@ -32,38 +36,44 @@ public class GameWindow extends JFrame {
         int fieldWidthPosition = LEFT_MARGIN + Math.max(0, MIN_WIDTH - width * MinerBox.BOX_SIZE) / 2;
         int fieldHeightPosition = TOP_MARGIN + REFRESH_HEIGHT + BEETWEEN_MARGIN;
 
-        this.setResizable(false);
-
         refreshPanel = new JPanel();
         refreshPanel.setLayout(null);
 
-
-
-        this.setSize(windowWidth, windowHeight);
-        this.setLayout(null);
-
+        setResizable(false);
+        setSize(windowWidth, windowHeight);
+        setLayout(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         refreshPanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
         refreshPanel.setBounds(LEFT_MARGIN, TOP_MARGIN, refreshPanelWidth, REFRESH_HEIGHT);
-
-
+        add(refreshPanel);
 
         minerField = new MinerField(width, height, mines);
         fieldPanel = minerField.getButtonsPanel();
         fieldPanel.setBounds(fieldWidthPosition, fieldHeightPosition,
                 width * MinerBox.BOX_SIZE, height * MinerBox.BOX_SIZE);
-        this.add(fieldPanel);
+        add(fieldPanel);
 
-        this.refreshButton = new RefreshButton(refreshPanel, minerField);
+        refreshButton = new RefreshButton(refreshPanel, minerField);
         minerField.setRefreshButton(refreshButton);
 
-        this.add(refreshPanel);
+        minesDisplay = new DigitalDisplay(refreshPanel,
+                DISPLAY_PADDING);
+        refreshPanel.add(minesDisplay);
+        minerField.setMinersDisplay(minesDisplay);
+
+        timeDisplay = new TimeDigitalDisplay(refreshPanel,
+                refreshPanelWidth - minesDisplay.getWidth() - DISPLAY_PADDING);
+        refreshPanel.add(timeDisplay);
+        minerField.setTimeDisplay(timeDisplay);
+
+        minerField.initRefresh();
+
         refreshPanel.setVisible(true);
         fieldPanel.setVisible(true);
-        minerField.initRefresh();
         refreshButton.setVisible(true);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        minesDisplay.setVisible(true);
+        timeDisplay.setVisible(true);
+        setVisible(true);
     }
 }

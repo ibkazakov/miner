@@ -55,14 +55,7 @@ public class DifferentRandom {
         random.setSeed(System.nanoTime());
     }
 
-    public void inverseExceptions() {
-        for(int i = 0; i < n; i++) {
-            exceptFlags[i] = !exceptFlags[i];
-        }
-        excepted = n - excepted;
-    }
-
     public int remain() {
-        return n - excepted;
+        return (n - excepted);
     }
 }

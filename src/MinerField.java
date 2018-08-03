@@ -15,11 +15,14 @@ public class MinerField {
     private int mines;
 
     private boolean isFirstClicked = false;
+    private boolean isFail = false;
 
     private int unsettedMines;
 
     private JPanel buttonsPanel;
     private RefreshButton refreshButton;
+    private DigitalDisplay minersDisplay;
+    private TimeDigitalDisplay timeDisplay;
 
     private Queue<MinerBox> openQueue;
 
@@ -91,6 +94,15 @@ public class MinerField {
         this.refreshButton = refreshButton;
     }
 
+    public void setMinersDisplay(DigitalDisplay minersDisplay) {
+        this.minersDisplay = minersDisplay;
+        this.minersDisplay.setValue(mines);
+    }
+
+    public void setTimeDisplay(TimeDigitalDisplay timeDisplay) {
+        this.timeDisplay = timeDisplay;
+    }
+
     public RefreshButton getRefreshButton() {
         return refreshButton;
     }
@@ -133,15 +145,28 @@ public class MinerField {
                 }
             }
         }
+
+
+
         //regular mines setting
         distributeMines();
-        differentRandom.inverseExceptions();
-        differentRandom.exceptValue(x + y * width);
+
+        // resetting
+        for(int i = x - 1; i <= x + 1; i++) {
+            for(int j = y - 1; j <= y + 1; j++) {
+                if ((i >= 0) && (j >= 0) && (i < width) && (j < height) && !((i == x) && (j == y))) {
+                    differentRandom.resetValue(i + j * width);
+                }
+            }
+        }
+
         //surplus mines setting(around clicked box, if they are so many)
+
         distributeMines();
 
         calculateArounds();
         isFirstClicked = true;
+        timeDisplay.start();
     }
 
     private int minesAround(int k, int l) {
@@ -174,7 +199,10 @@ public class MinerField {
         clear();
         opened = 0;
         isFirstClicked = false;
+        isFail = false;
         unsettedMines = mines;
+        minersDisplay.setValue(mines);
+        timeDisplay.initRefresh();
     }
 
     // II open func:
@@ -210,12 +238,13 @@ public class MinerField {
     }
 
     public void checkWin() {
-        if (opened + mines == width * height) {
+        if ((opened + mines == width * height) && (!isFail)) {
             win();
         }
     }
 
     public void win() {
+        timeDisplay.stop();
         for(int i = 0; i < width; i++) {
             for(int j = 0; j < height; j++) {
                 if (!field[i][j].isOpen()) {
@@ -228,6 +257,8 @@ public class MinerField {
     }
 
     public void fail() {
+        timeDisplay.stop();
+        isFail = true;
         for(int i = 0; i < width; i++) {
             for(int j = 0; j < height; j++) {
                  field[i][j].fail_open();
@@ -236,4 +267,11 @@ public class MinerField {
         refreshButton.fail();
     }
 
+    public void increaseDisplay() {
+        minersDisplay.incrementValue();
+    }
+
+    public void decreaseDisplay() {
+        minersDisplay.decrementValue();
+    }
 }
