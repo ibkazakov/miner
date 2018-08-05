@@ -39,10 +39,20 @@ public class RefreshButton extends JButton {
         refreshPanel.add(this);
     }
 
+    public void resize() {
+        setBounds((refreshPanel.getWidth() - BUTTON_SIZE) / 2,
+                (refreshPanel.getHeight() - BUTTON_SIZE) / 2,
+                BUTTON_SIZE, BUTTON_SIZE);
+    }
+
     public void normal() {
         if (fieldClickEnable) {
             this.setIcon(normal_icon);
         }
+    }
+
+    public void forceNormal() {
+        this.setIcon(normal_icon);
     }
 
     public void fieldClicked() {
@@ -61,10 +71,14 @@ public class RefreshButton extends JButton {
         fieldClickEnable = false;
     }
 
-    private void refresh() {
+    public void refresh() {
         fieldClickEnable = true;
         this.setIcon(normal_icon);
         minerField.initRefresh();
+    }
+
+    public void setMinerField(MinerField minerField) {
+        this.minerField = minerField;
     }
 
 }

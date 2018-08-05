@@ -4,6 +4,7 @@ import java.io.File;
 
 public class DigitalDisplay extends JLabel {
     private int value = 0;
+    private int displayPadding;
     private JPanel refreshPanel;
 
     private static Font DIGITAL_FONT;
@@ -29,6 +30,7 @@ public class DigitalDisplay extends JLabel {
 
     public DigitalDisplay(JPanel refreshPanel, int displayPadding) {
         this.refreshPanel = refreshPanel;
+        this.displayPadding = displayPadding;
         setBounds(displayPadding, (refreshPanel.getHeight() - DISPLAY_HEIGHT)/ 2,
                 DISPLAY_WIGHT, DISPLAY_HEIGHT);
         setHorizontalAlignment(JLabel.CENTER);
@@ -40,6 +42,14 @@ public class DigitalDisplay extends JLabel {
         setText("000");
     }
 
+    public void resize() {
+        setBounds(displayPadding, (refreshPanel.getHeight() - DISPLAY_HEIGHT)/ 2,
+                DISPLAY_WIGHT, DISPLAY_HEIGHT);
+    }
+
+    public void setDisplayPadding(int displayPadding) {
+        this.displayPadding = displayPadding;
+    }
 
     public int getValue() {
         return value;

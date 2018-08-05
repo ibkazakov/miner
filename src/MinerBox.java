@@ -13,6 +13,7 @@ public class MinerBox {
     private int flagState; // 0 - normal, 1 - flagged, 2 - ?
     private boolean isLeftClickEnabled;
     private boolean isRightClickEnabled;
+    private boolean isMiddleClickEnabled;
 
 
     private MinerField minerField;
@@ -102,6 +103,14 @@ public class MinerBox {
         contentLabel.setFont(LABEL_FONT);
         contentLabel.setHorizontalAlignment(JLabel.CENTER);
         contentLabel.setVerticalAlignment(JLabel.CENTER);
+        contentLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (SwingUtilities.isMiddleMouseButton(e) && isMiddleClickEnabled) {
+                    minerField.middleClick(x, y);
+                }
+            }
+        });
     }
 
     public void init() {
@@ -119,6 +128,7 @@ public class MinerBox {
         openButton.setVisible(true);
         isLeftClickEnabled = true;
         isRightClickEnabled = true;
+        isMiddleClickEnabled = true;
     }
 
     public void simple_open() {
@@ -166,6 +176,7 @@ public class MinerBox {
     public void disable() {
         isLeftClickEnabled = false;
         isRightClickEnabled = false;
+        isMiddleClickEnabled = false;
     }
 
 
@@ -208,6 +219,10 @@ public class MinerBox {
                 isLeftClickEnabled = true;
                 break;
         }
+    }
+
+    public int getFlagState() {
+        return flagState;
     }
 
     // getters\setters:

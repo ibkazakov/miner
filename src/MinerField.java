@@ -147,7 +147,6 @@ public class MinerField {
         }
 
 
-
         //regular mines setting
         distributeMines();
 
@@ -203,6 +202,7 @@ public class MinerField {
         unsettedMines = mines;
         minersDisplay.setValue(mines);
         timeDisplay.initRefresh();
+        refreshButton.forceNormal();
     }
 
     // II open func:
@@ -274,4 +274,37 @@ public class MinerField {
     public void decreaseDisplay() {
         minersDisplay.decrementValue();
     }
+
+    private void openAround(int x, int y) {
+        for(int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if ((i >= 0) && (j >= 0) && (i < width) && (j < height)) {
+                    if ((!field[i][j].isOpen()) && (field[i][j].getFlagState() != 1)) {
+                        field[i][j].open();
+                    }
+                }
+            }
+        }
+    }
+
+    private int aroundFlags(int x, int y) {
+        int flags = 0;
+        for(int i = x - 1; i <= x + 1; i++) {
+            for (int j = y - 1; j <= y + 1; j++) {
+                if ((i >= 0) && (j >= 0) && (i < width) && (j < height)) {
+                    if ((!field[i][j].isOpen()) && (field[i][j].getFlagState() == 1)) {
+                        flags++;
+                    }
+                }
+            }
+        }
+        return flags;
+    }
+
+    public void middleClick(int x, int y) {
+        if (field[x][y].getMinesAround() == aroundFlags(x, y)) {
+            openAround(x, y);
+        }
+    }
+
 }
