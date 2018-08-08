@@ -103,12 +103,37 @@ public class MinerBox {
         contentLabel.setFont(LABEL_FONT);
         contentLabel.setHorizontalAlignment(JLabel.CENTER);
         contentLabel.setVerticalAlignment(JLabel.CENTER);
-        contentLabel.addMouseListener(new MouseAdapter() {
+        contentLabel.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (SwingUtilities.isMiddleMouseButton(e) && isMiddleClickEnabled) {
                     minerField.middleClick(x, y);
                 }
+            }
+
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    minerField.getRefreshButton().fieldClicked();
+                    mouseEntered(e);
+                }
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                if (SwingUtilities.isLeftMouseButton(e)) {
+                    minerField.getRefreshButton().normal();
+                }
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
             }
         });
     }

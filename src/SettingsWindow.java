@@ -13,6 +13,8 @@ public class SettingsWindow extends JFrame {
     private int gameHeight;
     private int gameMines;
 
+    private JPanel mainPanel;
+
     private static final int MAX_WIDTH = 50;
     private static final int MAX_HEIGHT = 24;
 
@@ -73,14 +75,18 @@ public class SettingsWindow extends JFrame {
         gameHeight = standardModes[0][1];
         gameMines = standardModes[0][2];
 
-        setLayout(null);
+        setLayout(new GridLayout(1, 1));
 
         int windowWidth = MODE_WIDTH + ROW_WIDTH * COLUMNS;
         int windowHeight = TITLE_PANEL_HEIGHT + MODE_HEIGHT * ROWS + MODE_HEIGHT + BUTTON_PANEL_HEIGHT;
 
-        setSize(windowWidth, windowHeight);
+        mainPanel = new JPanel();
+        mainPanel.setPreferredSize(new Dimension(windowWidth, windowHeight));
+        mainPanel.setLayout(null);
+
+        // setSize(windowWidth, windowHeight);
         validate();
-        setResizable(false);
+        // setResizable(false);
         setTitle("Game Settings");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -100,7 +106,7 @@ public class SettingsWindow extends JFrame {
         titlePanelLabels[0].setText("Width");
         titlePanelLabels[1].setText("Height");
         titlePanelLabels[2].setText("Mines");
-        add(columnsTitlePanel);
+        mainPanel.add(columnsTitlePanel);
 
         tablePanel.setBounds(MODE_WIDTH, TITLE_PANEL_HEIGHT, ROW_WIDTH * ROWS, MODE_HEIGHT * COLUMNS);
         tablePanel.setOpaque(true);
@@ -117,7 +123,7 @@ public class SettingsWindow extends JFrame {
                 tablePanelLabels[i][j].setVisible(true);
             }
         }
-        add(tablePanel);
+        mainPanel.add(tablePanel);
 
         customModePanel.setBounds(MODE_WIDTH, TITLE_PANEL_HEIGHT + MODE_HEIGHT * COLUMNS,
                 ROW_WIDTH * ROWS, MODE_HEIGHT);
@@ -132,7 +138,7 @@ public class SettingsWindow extends JFrame {
             customModeFields[i].setEnabled(false);
             customModeFields[i].setVisible(true);
         }
-        add(customModePanel);
+        mainPanel.add(customModePanel);
 
         radioPanel.setBounds(0, TITLE_PANEL_HEIGHT, MODE_WIDTH, MODE_HEIGHT * COLUMNS + MODE_HEIGHT);
         radioPanel.setOpaque(true);
@@ -170,7 +176,7 @@ public class SettingsWindow extends JFrame {
             }
         });
 
-        add(radioPanel);
+        mainPanel.add(radioPanel);
 
         buttonPanel.setBounds(0, TITLE_PANEL_HEIGHT + MODE_HEIGHT * ROWS + MODE_HEIGHT,
                 windowWidth, BUTTON_PANEL_HEIGHT);
@@ -187,13 +193,17 @@ public class SettingsWindow extends JFrame {
             }
         });
         buttonPanel.add(newGameButton);
-        add(buttonPanel);
+        mainPanel.add(buttonPanel);
         newGameButton.setVisible(true);
         buttonPanel.setVisible(true);
 
 
         columnsTitlePanel.setVisible(true);
         newGameButton.setVisible(true);
+
+        add(mainPanel);
+        setResizable(false);
+        pack();
         setVisible(false);
     }
 

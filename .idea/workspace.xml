@@ -7,20 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="186190a6-f737-4528-b00a-6102efca2ab0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AboutWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SettingsWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minesweeper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/minesweeper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/miner/GameWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/miner/GameWindow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/miner/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/miner/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/miner/RefreshButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/miner/RefreshButton$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/miner/RefreshButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/miner/RefreshButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DigitalDisplay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DigitalDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MinerBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinerBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MinerField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinerField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RefreshButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RefreshButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SettingsWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SettingsWindow.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,7 +27,7 @@
       <file leaf-file-name="MinerField.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MinerField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2115">
+            <state relative-caret-position="165">
               <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
               <folding>
                 <element signature="e#1310#1342#0" />
@@ -60,21 +52,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MinerBox.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MinerBox.java">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="112" column="11" lean-forward="true" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
+            <state relative-caret-position="240">
+              <caret line="164" column="26" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
               <folding>
-                <element signature="class#2095:3304" />
-                <element signature="method#init#0;class#MinerBox#0" />
-                <element signature="method#simple_open#0;class#MinerBox#0" />
-                <element signature="method#open#0;class#MinerBox#0" />
-                <element signature="method#open_not_zero#0;class#MinerBox#0" />
-                <element signature="method#fail_open#0;class#MinerBox#0" />
-                <element signature="method#disable#0;class#MinerBox#0" />
-                <element signature="method#computeLabel#0;class#MinerBox#0" />
-                <element signature="method#setFlagState#0;class#MinerBox#0" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsWindow.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/SettingsWindow.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,13 +104,13 @@
         <option value="$PROJECT_DIR$/src/TimeDigitalDisplay.java" />
         <option value="$PROJECT_DIR$/src/DifferentRandom.java" />
         <option value="$PROJECT_DIR$/src/AboutWindow.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/DigitalDisplay.java" />
-        <option value="$PROJECT_DIR$/src/GameWindow.java" />
         <option value="$PROJECT_DIR$/src/RefreshButton.java" />
-        <option value="$PROJECT_DIR$/src/SettingsWindow.java" />
         <option value="$PROJECT_DIR$/src/MinerField.java" />
         <option value="$PROJECT_DIR$/src/MinerBox.java" />
+        <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/GameWindow.java" />
+        <option value="$PROJECT_DIR$/src/SettingsWindow.java" />
       </list>
     </option>
   </component>
@@ -132,7 +137,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -154,7 +159,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -183,6 +188,8 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/jdk1.8.0_181/jre" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="miner" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -230,12 +237,16 @@
       <workItem from="1533299469119" duration="17000" />
       <workItem from="1533328793879" duration="70000" />
       <workItem from="1533457875772" duration="6138000" />
-      <workItem from="1533468324200" duration="27261000" />
+      <workItem from="1533468324200" duration="27545000" />
+      <workItem from="1533584346492" duration="67000" />
+      <workItem from="1533627535739" duration="81000" />
+      <workItem from="1533662845650" duration="1230000" />
+      <workItem from="1533710125726" duration="10894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150817000" />
+    <option name="totallyTimeSpent" value="163373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
@@ -248,10 +259,10 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298193" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3298193" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24980783" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24980783" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -600,26 +611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/SettingsWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RefreshButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
-          <folding>
-            <element signature="e#2041#2042#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2517#2518#0" expanded="true" />
-            <element signature="e#2535#2536#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -627,35 +622,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
           <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
-          <folding>
-            <element signature="e#1586#1587#0" expanded="true" />
-            <element signature="e#1637#1638#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/MinerBox.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="197" column="46" selection-start-line="197" selection-start-column="46" selection-end-line="197" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="49" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="49" />
+        <state relative-caret-position="384">
+          <caret line="123" column="58" lean-forward="true" selection-start-line="123" selection-start-column="58" selection-end-line="123" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#200#201#0" expanded="true" />
+            <element signature="method#init#0;class#MinerBox#0" />
+            <element signature="method#simple_open#0;class#MinerBox#0" />
+            <element signature="method#open#0;class#MinerBox#0" />
+            <element signature="method#open_not_zero#0;class#MinerBox#0" />
+            <element signature="method#fail_open#0;class#MinerBox#0" />
+            <element signature="method#disable#0;class#MinerBox#0" />
+            <element signature="method#computeLabel#0;class#MinerBox#0" />
+            <element signature="method#setFlagState#0;class#MinerBox#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MinerField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2115">
+        <state relative-caret-position="165">
           <caret line="297" column="17" selection-start-line="297" selection-start-column="17" selection-end-line="297" selection-end-column="17" />
           <folding>
             <element signature="e#1310#1342#0" />
@@ -679,20 +668,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinerBox.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="112" column="11" lean-forward="true" selection-start-line="112" selection-start-column="11" selection-end-line="112" selection-end-column="11" />
+        <state relative-caret-position="120">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding>
-            <element signature="class#2095:3304" />
-            <element signature="method#init#0;class#MinerBox#0" />
-            <element signature="method#simple_open#0;class#MinerBox#0" />
-            <element signature="method#open#0;class#MinerBox#0" />
-            <element signature="method#open_not_zero#0;class#MinerBox#0" />
-            <element signature="method#fail_open#0;class#MinerBox#0" />
-            <element signature="method#disable#0;class#MinerBox#0" />
-            <element signature="method#computeLabel#0;class#MinerBox#0" />
-            <element signature="method#setFlagState#0;class#MinerBox#0" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="164" column="26" selection-start-line="164" selection-start-column="26" selection-end-line="164" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/SettingsWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="198" lean-forward="true" selection-start-line="198" selection-end-line="198" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

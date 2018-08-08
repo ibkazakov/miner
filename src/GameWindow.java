@@ -13,6 +13,8 @@ public class GameWindow extends JFrame {
     private JPanel fieldPanel;
     private RefreshButton refreshButton;
 
+    private JPanel mainPanel;
+
     private DigitalDisplay minesDisplay;
     private TimeDigitalDisplay timeDisplay;
 
@@ -30,7 +32,7 @@ public class GameWindow extends JFrame {
 
     private static final int DISPLAY_PADDING = 5;
 
-    private static final int MENU_BAR_HEIGHT = 21; // standart menuBar Height
+   // private static final int MENU_BAR_HEIGHT = 21; // standart menuBar Height
 
     private static final Font menuFont = new Font("Verdana", Font.PLAIN, 14);
 
@@ -43,7 +45,7 @@ public class GameWindow extends JFrame {
 
         int refreshPanelWidth = Math.max(MIN_WIDTH, width * MinerBox.BOX_SIZE);
         int windowWidth = LEFT_MARGIN + refreshPanelWidth + RIGHT_MARGIN;
-        int windowHeight = MENU_BAR_HEIGHT + TOP_MARGIN + REFRESH_HEIGHT
+        int windowHeight = TOP_MARGIN + REFRESH_HEIGHT
                 + BEETWEEN_MARGIN + height * MinerBox.BOX_SIZE + BOTTOM_MARGIN;
         int fieldWidthPosition = LEFT_MARGIN + Math.max(0, MIN_WIDTH - width * MinerBox.BOX_SIZE) / 2;
         int fieldHeightPosition = TOP_MARGIN + REFRESH_HEIGHT + BEETWEEN_MARGIN;
@@ -51,22 +53,26 @@ public class GameWindow extends JFrame {
         refreshPanel = new JPanel();
         refreshPanel.setLayout(null);
 
-        setResizable(false);
-        setSize(windowWidth, windowHeight);
-        validate();
+        mainPanel = new JPanel();
+        mainPanel.setPreferredSize(new Dimension(windowWidth, windowHeight));
+        mainPanel.setLayout(null);
+
+        // setResizable(false);
+        // setSize(windowWidth, windowHeight);
+        // validate();
         setTitle("Java MineSweeper");
-        setLayout(null);
+        setLayout(new GridLayout(1, 1));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         refreshPanel.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED));
         refreshPanel.setBounds(LEFT_MARGIN, TOP_MARGIN, refreshPanelWidth, REFRESH_HEIGHT);
-        add(refreshPanel);
+        mainPanel.add(refreshPanel);
 
         minerField = new MinerField(width, height, mines);
         fieldPanel = minerField.getButtonsPanel();
         fieldPanel.setBounds(fieldWidthPosition, fieldHeightPosition,
                 width * MinerBox.BOX_SIZE, height * MinerBox.BOX_SIZE);
-        add(fieldPanel);
+        mainPanel.add(fieldPanel);
 
 
         refreshButton = new RefreshButton(refreshPanel, minerField);
@@ -155,6 +161,9 @@ public class GameWindow extends JFrame {
         minesDisplay.setVisible(true);
         timeDisplay.setVisible(true);
         setLocationRelativeTo(null);
+        add(mainPanel);
+        setResizable(false);
+        pack();
         setVisible(true);
     }
 
@@ -167,14 +176,14 @@ public class GameWindow extends JFrame {
         // padding parameters
         int refreshPanelWidth = Math.max(MIN_WIDTH, width * MinerBox.BOX_SIZE);
         int windowWidth = LEFT_MARGIN + refreshPanelWidth + RIGHT_MARGIN;
-        int windowHeight = MENU_BAR_HEIGHT + TOP_MARGIN + REFRESH_HEIGHT
+        int windowHeight = TOP_MARGIN + REFRESH_HEIGHT
                 + BEETWEEN_MARGIN + height * MinerBox.BOX_SIZE + BOTTOM_MARGIN;
         int fieldWidthPosition = LEFT_MARGIN + Math.max(0, MIN_WIDTH - width * MinerBox.BOX_SIZE) / 2;
         int fieldHeightPosition = TOP_MARGIN + REFRESH_HEIGHT + BEETWEEN_MARGIN;
 
         // total resize
-        setSize(windowWidth, windowHeight);
-        validate();
+        mainPanel.setPreferredSize(new Dimension(windowWidth, windowHeight));
+        // validate();
 
         //refresh panel resize
         refreshPanel.setBounds(LEFT_MARGIN, TOP_MARGIN, refreshPanelWidth, REFRESH_HEIGHT);
@@ -184,13 +193,13 @@ public class GameWindow extends JFrame {
         refreshButton.resize();
 
         // Delete field panel
-        remove(fieldPanel);
+        mainPanel.remove(fieldPanel);
         //new minerfield
         minerField = new MinerField(width, height, mines);
         fieldPanel = minerField.getButtonsPanel();
         fieldPanel.setBounds(fieldWidthPosition, fieldHeightPosition,
                 width * MinerBox.BOX_SIZE, height * MinerBox.BOX_SIZE);
-        add(fieldPanel);
+        mainPanel.add(fieldPanel);
         // minerfield binds
         minerField.setRefreshButton(refreshButton);
         minerField.setMinersDisplay(minesDisplay);
@@ -198,7 +207,7 @@ public class GameWindow extends JFrame {
         refreshButton.setMinerField(minerField);
         // init game
         minerField.initRefresh();
-
+        pack();
         setVisible(true);
     }
 }
